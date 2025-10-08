@@ -7,7 +7,7 @@ CORS(app)  # allow FE in dev; later restrict origins to your FE domain
 
 @app.get("/")
 def hello():
-    return "Hello from Flask 👋"
+    return jsonify({"message": "Hello from Flask 👋"})
 
 @app.get("/api/time")
 def time_now():
@@ -15,4 +15,4 @@ def time_now():
     return jsonify({"utc": now})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
